@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Cocos2D Tile Map Coordinate Assistant</title>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="tileCoordinates.js"></script>
+    <link rel="stylesheet" href="tileCoordinates.css">
+</head>
+<body>
+<h1>Cocos2D Tile Map Coordinate Assistant</h1>
+<h3>Left-click to (de-)select the start tile</h3>
+<h3>Ctrl + Left-click to (de-)select the end tile</h3>
+<div id="map"></div>
+<span id="info">
+    <fieldset>
+        <legend>
+            Start Tile
+        </legend>
+        <span class="textBox">
+            <label for="startTileRowCol" class="infoLabel">Row/Column (x,y):</label>
+            <input type="text" id="startTileRowCol" class="infoText">
+            <button class="copyButton"></button>
+        </span>
+        <br/>
+        <span class="textBox">
+            <label for="startTileTopLeft" class="infoLabel">Top left pixel (x,y):</label>
+            <input type="text" id="startTileTopLeft" class="infoText">
+            <button class="copyButton"></button>
+        </span>
+        <br/>
+        <span class="textBox">
+            <label for="startTileCenter" class="infoLabel">Center pixel (x,y):</label>
+            <input type="text" id="startTileCenter" class="infoText">
+            <button class="copyButton"></button>
+        </span>
+    </fieldset>
+    <br/>
+    <fieldset>
+        <legend>
+            End Tile
+        </legend>
+        <span class="textBox">
+            <label for="endTileRowCol" class="infoLabel">Row/Column (x,y):</label>
+            <input type="text" id="endTileRowCol" class="infoText">
+            <button class="copyButton"></button>
+        </span>
+        <br/>
+        <span class="textBox">
+            <label for="endTileTopLeft" class="infoLabel">Top left pixel (x,y):</label>
+            <input type="text" id="endTileTopLeft" class="infoText">
+            <button class="copyButton"></button>
+        </span>
+        <br/>
+        <span class="textBox">
+            <label for="endTileCenter" class="infoLabel">Center pixel (x,y):</label>
+            <input type="text" id="endTileCenter" class="infoText">
+            <button class="copyButton"></button>
+        </span>
+    </fieldset>
+    <br/>
+    <fieldset>
+        <legend>
+            Distance
+        </legend>
+        <br/>
+        <span class="textBox">
+            <label for="distance" class="infoLabel">Relative pixels (x, y):</label>
+            <input type="text" id="distance" class="infoText">
+            <button class="copyButton"></button>
+        </span>
+    </fieldset>
+</span>
+<fieldset>
+    <legend>Resize Map</legend>
+
+    <label for="tileSize" class="resizeLabel">Tile Size (px)</label>
+    <input id="tileSize" type="number" value="32" class="mapSize">
+    <br/>
+    <label for="widthTiles" class="resizeLabel">Width (# tiles)</label>
+    <input id="widthTiles" type="number" value="20" class="mapSize">
+    <label for="widthPixels" class="resizeLabel">Width (px)</label>
+    <input id="widthPixels" type="number" value="640" class="mapSize">
+    <br/>
+    <label for="heightTiles" class="resizeLabel">Height (# tiles)</label>
+    <input id="heightTiles" type="number" value="15" class="mapSize">
+    <label for="heightPixels" class="resizeLabel">Height (px)</label>
+    <input id="heightPixels" type="number" value="480" class="mapSize">
+    <br/>
+    <button id="redrawMapButton">Redraw Map</button>
+</fieldset>
+</body>
+</html>
