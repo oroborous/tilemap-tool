@@ -3,7 +3,7 @@ $(init);
 function init() {
     $("#redrawMapButton").click(changeTileSize);
 
-    $(".copyButton").click(function() {
+    $(".copyButton").click(function () {
         let textBox = $(this).prev(".infoText")[0];
         textBox.select();
         textBox.setSelectionRange(0, 99999);
@@ -12,6 +12,8 @@ function init() {
 
     $(".mapSize").keyup(updateSizes);
     $(".mapSize").change(updateSizes);
+
+    $("#map").css("background-image", "url('desert_map0.png')");
 
     changeTileSize();
 }

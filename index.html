@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <title>Cocos2D Tile Map Coordinate Assistant</title>
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script src="tileCoordinates.js"></script>
+    <script src="upload.js"></script>
     <link rel="stylesheet" href="tileCoordinates.css">
 </head>
 <body>
@@ -72,6 +73,14 @@
     </fieldset>
 </span>
 <fieldset>
+    <legend>Change Map Image</legend>
+    <form method="post" enctype="multipart/form-data">
+        Select image to upload:
+        <input type="file" name="fileToUpload" id="fileToUpload">
+        <input type="button" value="Upload Image" name="submit" id="uploadButton">
+    </form>
+</fieldset>
+<fieldset>
     <legend>Resize Map</legend>
 
     <label for="tileSize" class="resizeLabel">Tile Size (px)</label>
@@ -89,5 +98,6 @@
     <br/>
     <button id="redrawMapButton">Redraw Map</button>
 </fieldset>
+
 </body>
 </html>
