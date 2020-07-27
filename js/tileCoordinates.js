@@ -1,5 +1,10 @@
 $(init);
 
+const MAP_NAME = "lastMapName";
+const TILE_SIZE = "lastTileSize";
+const WIDTH_TILES = "lastWidthTiles";
+const HEIGHT_TILES = "lastHeightTiles";
+
 function init() {
     $("#redrawMapButton").click(changeTileSize);
 
@@ -13,9 +18,30 @@ function init() {
     $(".mapSize").keyup(updateSizes);
     $(".mapSize").change(updateSizes);
 
-    $("#map").css("background-image", "url('desert_map0.png')");
+    let lastMapName = readCookie(MAP_NAME);
+    setMapImage(lastMapName);
+    let lastTileSize = readCookie(TILE_SIZE);
+    if (lastTileSize) {
+        $("#tileSize").val(lastTileSize);
+    }
+    let lastWidthTiles = readCookie(WIDTH_TILES);
+    if (lastWidthTiles) {
+        $("#widthTiles").val(lastWidthTiles);
+    }
+    let lastHeightTiles = readCookie(HEIGHT_TILES);
+    if (lastWidthTiles) {
+        $("#heightTiles").val(lastHeightTiles);
+    }
 
     changeTileSize();
+}
+
+function setMapImage(location) {
+    if (location) {
+        $("#map").css("background-image", "url('" + location + "')");
+    } else {
+        $("#map").css("background-image", "url('img/desert_map0.png')");
+    }
 }
 
 function updateSizes() {
@@ -93,21 +119,27 @@ function showTileInfo(tile, rowColInputId, topLeftInputId, centerInputId) {
 
 function showDistance() {
     let distanceInput = $("#distance");
+    let moveActionInput = $("#moveAction");
     if (!startTile || !endTile) {
         distanceInput.val("");
+        moveActionInput.val("");
     } else {
         let startCoords = startTile.data(CENTER);
         let endCoords = endTile.data(CENTER);
         let distance = [endCoords[0] - startCoords[0], endCoords[1] - startCoords[1]];
         distanceInput.val(formatPythonTuple(distance));
+        moveActionInput.val("move" + formatPythonTuple(distance));
     }
 }
 
 
 function changeTileSize() {
     let newTileSize = Number($("#tileSize").val());
+    createCookie(TILE_SIZE, newTileSize);
     let widthTiles = Number($("#widthTiles").val());
+    createCookie(WIDTH_TILES, widthTiles);
     let heightTiles = Number($("#heightTiles").val());
+    createCookie(HEIGHT_TILES, heightTiles);
 
     $("#info").width(window.innerWidth - (newTileSize * widthTiles) - 50);
 

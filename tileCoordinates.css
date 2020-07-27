@@ -37,7 +37,7 @@ fieldset {
 
 .copyButton {
     background-color: white;
-    background-image: url("copy-icon.png");
+    background-image: url("img/copy-icon.png");
     background-position: center;
     background-repeat: no-repeat;
     width: 30px;

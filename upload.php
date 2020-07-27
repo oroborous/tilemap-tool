@@ -27,7 +27,6 @@ if($uploadOk == 0){
    if(move_uploaded_file($_FILES['file']['tmp_name'],$location)){
       echo $location;
    }else{
-      echo "Filename: " . $location;
       echo 0;
    }
 }

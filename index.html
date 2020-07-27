@@ -4,8 +4,9 @@
     <meta charset="UTF-8">
     <title>Cocos2D Tile Map Coordinate Assistant</title>
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-    <script src="tileCoordinates.js"></script>
-    <script src="upload.js"></script>
+    <script src="js/cookies.js"></script>
+    <script src="js/tileCoordinates.js"></script>
+    <script src="js/upload.js"></script>
     <link rel="stylesheet" href="tileCoordinates.css">
 </head>
 <body>
@@ -62,12 +63,17 @@
     <br/>
     <fieldset>
         <legend>
-            Distance
+            Center-to-Center Distance
         </legend>
-        <br/>
         <span class="textBox">
             <label for="distance" class="infoLabel">Relative pixels (x, y):</label>
             <input type="text" id="distance" class="infoText">
+            <button class="copyButton"></button>
+        </span>
+        <br/>
+        <span class="textBox">
+            <label for="moveAction" class="infoLabel">Move Action:</label>
+            <input type="text" id="moveAction" class="infoText">
             <button class="copyButton"></button>
         </span>
     </fieldset>

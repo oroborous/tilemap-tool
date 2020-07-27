@@ -14,10 +14,10 @@ $(document).ready(function () {
             processData: false,
             success: function (response) {
                 if (response != 0) {
-                    alert(response);
+                    createCookie(MAP_NAME, response);
                     $("#map").css("background-image", "url('" + response + "')");
                 } else {
-                    alert(response);
+                    alert("Upload failed. Please select a JPG or PNG and try again.");
                 }
             },
         });
