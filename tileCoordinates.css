@@ -2,23 +2,11 @@ body {
     font-family: monospace;
 }
 
-fieldset {
-    width: 50%;
-}
-
-#info {
-    float: right;
-}
-
-#info fieldset {
-    display: inline-block;
-    width: 200px;
-}
-
 .textBox {
     display: grid;
     grid-template-rows: auto auto;
     grid-template-columns: auto 30px;
+    margin-bottom: 5px;
 }
 
 #map {
@@ -50,6 +38,7 @@ fieldset {
 .resizeLabel {
     display: inline-block;
     width: 150px;
+    text-align: right;
 }
 
 .tile {

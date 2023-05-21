@@ -5,8 +5,14 @@ const TILE_SIZE = "lastTileSize";
 const WIDTH_TILES = "lastWidthTiles";
 const HEIGHT_TILES = "lastHeightTiles";
 
+const DEFAULT_TILE_SIZE = 32;
+const DEFAULT_WIDTH_TILES = 20;
+const DEFAULT_HEIGHT_TILES = 15;
+
 function init() {
     $("#redrawMapButton").click(changeTileSize);
+
+    $("#resetMapButton").click(resetMapDefaults);
 
     $(".copyButton").click(function () {
         let textBox = $(this).prev(".infoText")[0];
@@ -18,8 +24,6 @@ function init() {
     $(".mapSize").keyup(updateSizes);
     $(".mapSize").change(updateSizes);
 
-    let lastMapName = readCookie(MAP_NAME);
-    setMapImage(lastMapName);
     let lastTileSize = readCookie(TILE_SIZE);
     if (lastTileSize) {
         $("#tileSize").val(lastTileSize);
@@ -36,13 +40,16 @@ function init() {
     changeTileSize();
 }
 
-function setMapImage(location) {
-    if (location) {
-        $("#map").css("background-image", "url('" + location + "')");
-    } else {
-        $("#map").css("background-image", "url('img/desert_map0.png')");
-    }
+function resetMapDefaults() {
+    $("#tileSize").val(DEFAULT_TILE_SIZE);
+    $("#widthTiles").val(DEFAULT_WIDTH_TILES);
+    $("#heightTiles").val(DEFAULT_HEIGHT_TILES);
+
+    changeTileSize();
+
+    document.getElementById("map").style.backgroundImage = `url('../img/desert_map0.png')`;
 }
+
 
 function updateSizes() {
     let tileSize = Number($("#tileSize").val());
